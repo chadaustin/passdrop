@@ -319,7 +319,7 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
             self.loadingDb = dbManager.getDatabaseAtIndex(indexPath.row)
             self.loadingDb.delegate = self
             
-            switch(app.prefs.databaseOpenMode){
+            switch(Int32(app.prefs.databaseOpenMode)){
             case kOpenModeReadOnly:
                 self.loadingDb.isReadOnly = true
                 self.completeLoad()

@@ -15,7 +15,7 @@
 
 @interface GeneratePasswordViewController : UIViewController<UITextFieldDelegate> {
     id<GeneratePasswordDelegate> delegate;
-    int currentFirstResponder;
+    NSInteger currentFirstResponder;
     NSString *password;
     PassDropAppDelegate *app;
     

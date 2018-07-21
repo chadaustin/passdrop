@@ -25,6 +25,6 @@
 
 @protocol IconPickerDelegate<NSObject>
 
-- (void)iconSelected:(UIImage*)icon withId:(uint32_t)iconId;
+- (void)iconSelected:(UIImage*)icon withId:(NSInteger)iconId;
 
 @end

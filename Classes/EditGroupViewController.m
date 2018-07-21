@@ -180,7 +180,7 @@ static PassDropAppDelegate *app;
     return kdbGroup;
 }
 
-- (void)iconSelected:(UIImage*)icon withId:(uint32_t)iconId {
+- (void)iconSelected:(UIImage*)icon withId:(NSInteger)iconId {
     self.neuIcon = icon;
     self.newIconId = iconId;
     [[self tableView] reloadData];

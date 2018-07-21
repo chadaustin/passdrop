@@ -13,7 +13,7 @@
 @interface EditDatabaseViewController : NetworkActivityViewController<UITextFieldDelegate, DatabaseDelegate, UIActionSheetDelegate> {
 	id<Database> database;
 	NSString *neuName;
-    int currentFirstResponder;
+    NSInteger currentFirstResponder;
     NSString *oldPassword;
     NSString *neuPassword;
     NSString *verifyPassword;

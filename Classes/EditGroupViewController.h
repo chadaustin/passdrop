@@ -20,10 +20,10 @@
     KdbGroup *kdbGroup;
     KdbGroup *parentGroup;
     UIImage *neuIcon;
-    uint32_t newIconId;
+    NSInteger newIconId;
     NSString *neuName;
     BOOL editMode;
-    int currentFirstResponder;
+    NSInteger currentFirstResponder;
     KdbGroupViewController *masterView;
     UIPopoverController *iconPop;
     int oldkeyboardHeight;
@@ -34,7 +34,7 @@
 @property (nonatomic) BOOL editMode;
 @property (retain, nonatomic) KdbGroup *parentGroup;
 @property (retain, nonatomic) UIImage *neuIcon;
-@property (nonatomic) uint32_t newIconId;
+@property (nonatomic) NSInteger newIconId;
 @property (copy, nonatomic) NSString *neuName;
 @property (retain, nonatomic) KdbGroupViewController *masterView;
 @property (retain, nonatomic) UIPopoverController *iconPop;

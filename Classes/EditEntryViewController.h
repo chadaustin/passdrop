@@ -30,7 +30,7 @@
     NSString *neuNotes;
     NSDate *neuExpireDate;
     BOOL editMode;
-    int currentFirstResponder;
+    NSInteger currentFirstResponder;
     KdbGroupViewController *masterView;
     UIPopoverController *iconPop;
     NSIndexPath *scrollToPath;

@@ -165,7 +165,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 for (buttonIndex, name) in ["Writable", "Read Only", "Always Ask"].enumerated() {
                     actionSheet.addAction(UIAlertAction(title: name, style: .default) { [weak self] _ in
                         let app = UIApplication.shared.delegate as! PassDropAppDelegate
-                        app.prefs.databaseOpenMode = Int32(buttonIndex)
+                        app.prefs.databaseOpenMode = buttonIndex
                         app.prefs.save()
                         self?.updateSettingsUI()
                     })
@@ -260,8 +260,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     // MARK: pref data conversion helpers
     
-    func openModeStringForMode(_ openMode: Int32) -> String? {
-        switch openMode {
+    func openModeStringForMode(_ openMode: Int) -> String? {
+        switch Int32(openMode) {
         case kOpenModeWritable: return "Writable"
         case kOpenModeReadOnly: return "Read Only"
         case kOpenModeAlwaysAsk: return "Always Ask"
@@ -269,7 +269,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func convertArrayTimesIndexToSeconds(_ index: Int) -> Int32 {
+    func convertArrayTimesIndexToSeconds(_ index: Int) -> NSInteger {
         switch index {
         case 0:
             return 0;
@@ -294,7 +294,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func convertSecondsToString(_ seconds: Int32) -> String {
+    func convertSecondsToString(_ seconds: Int) -> String {
         switch seconds {
         case -1:
             return "Never";

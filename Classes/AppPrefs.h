@@ -36,8 +36,8 @@
 @interface AppPrefs : NSObject {
 	BOOL firstLoad;
 	BOOL autoClearClipboard;
-	int lockInBackgroundSeconds;
-	int databaseOpenMode;
+	NSInteger lockInBackgroundSeconds;
+	NSInteger databaseOpenMode;
     double lastVersion;
     
     BOOL pwUpper;
@@ -58,8 +58,8 @@
 
 @property (nonatomic) BOOL firstLoad;
 @property (nonatomic) BOOL autoClearClipboard;
-@property (nonatomic) int lockInBackgroundSeconds;
-@property (nonatomic) int databaseOpenMode;
+@property (nonatomic) NSInteger lockInBackgroundSeconds;
+@property (nonatomic) NSInteger databaseOpenMode;
 @property (nonatomic) BOOL pwUpper;
 @property (nonatomic) BOOL pwLower;
 @property (nonatomic) BOOL pwNumbers;
