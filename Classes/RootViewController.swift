@@ -122,7 +122,7 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
 
     // MARK: Subview Handling
     
-    var tableView: UITableView! {
+    var tableView: UITableView {
         return view.viewWithTag(10) as! UITableView
     }
     

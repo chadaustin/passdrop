@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyDropbox
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var settingsTable: UITableView!
     var autoClearSwitch: UISwitch!
     var ignoreBackupSwitch: UISwitch!
@@ -52,8 +52,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction
     func dbButtonClicked() {
         if DropboxClientsManager.authorizedClient != nil {
-            let unlinkConfirm = UIAlertView(title: "Unlink Dropbox", message: "Are you sure you want to unlink your Dropbox account? This will also remove all databases from your device.", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Unlink")
-            unlinkConfirm.show()
+            let unlinkConfirm = UIAlertController(title: "Unlink Dropbox", message: "Are you sure you want to unlink your Dropbox account? This will also remove all databases from your device.", preferredStyle: .alert)
+            unlinkConfirm.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            unlinkConfirm.addAction(UIAlertAction(title: "Unlink Dropbox", style: .destructive) { [weak self] _ in
+                let app = UIApplication.shared.delegate as! PassDropAppDelegate
+                DropboxClientsManager.unlinkClients()
+                app.dropboxWasReset()
+                self?.updateSettingsUI()
+            })
+            present(unlinkConfirm, animated: true)
         } else {
             DropboxClientsManager.authorizeFromController(
                 UIApplication.shared,
@@ -61,15 +68,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             ) { url in
                 UIApplication.shared.openURL(url)
             }
-        }
-    }
-
-    func alertView(_ alertView: UIAlertView, clickedButtonAt index: Int) {
-        if index == 1 {
-            let app = UIApplication.shared.delegate as! PassDropAppDelegate
-            DropboxClientsManager.unlinkClients()
-            app.dropboxWasReset()
-            updateSettingsUI()
         }
     }
 
