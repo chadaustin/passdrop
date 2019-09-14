@@ -235,9 +235,9 @@ PassDropAppDelegate *app;
     return self;
 }
 
-- (void)iconSelected:(UIImage*)icon withId:(uint32_t)iconId {
+- (void)iconSelected:(UIImage*)icon withId:(NSInteger)iconId {
     self.neuIcon = icon;
-    self.neuIconId = iconId;
+    self.neuIconId = (uint32_t)iconId;
     [[self tableView] reloadData];
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
         [iconPop dismissPopoverAnimated:YES];
@@ -387,7 +387,7 @@ PassDropAppDelegate *app;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     static NSString *NoteCellIdentifier = @"NoteCell";
-    NSString *TextCellIdentifier = [@"TextCell" stringByAppendingFormat:@"%ld%ld", indexPath.section, indexPath.row];
+    NSString *TextCellIdentifier = [@"TextCell" stringByAppendingFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
     
 	UITableViewCell *cell;
     UITextField *field;
