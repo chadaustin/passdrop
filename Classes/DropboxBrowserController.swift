@@ -105,14 +105,16 @@ class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDe
     // MARK: Error UI
     
     func alertMessage(_ message: String, withTitle alertTitle: String) {
-        let alert = UIAlertView(title: alertTitle, message: message, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
     }
 
     func alertError(_ errorMessage: String?) {
         let msg = errorMessage ?? "Dropbox reported an unknown error."
-        let alert = UIAlertView(title: "Dropbox Error", message: msg, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        let alert = UIAlertController(title: "Dropbox Error", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
     }
 
      // MARK: Table view data source
