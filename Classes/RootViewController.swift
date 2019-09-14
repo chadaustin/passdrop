@@ -435,6 +435,7 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
         alert.addAction(UIAlertAction(title: "Okay", style: .cancel) { [weak self] _ in
             self?.databaseUpdateComplete(unlocking)
         })
+        present(alert, animated: true)
     }
     
     func databaseWasDeleted(_ database: Database!) {
