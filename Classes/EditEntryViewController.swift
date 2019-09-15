@@ -8,7 +8,7 @@
 
 fileprivate let NO_ICON_SET: UInt32 = 9999
 
-class EditEntryViewController : NetworkActivityViewController, ParentGroupPickerDelegate, UITextFieldDelegate, IconPickerDelegate, DatabaseDelegate, GeneratePasswordDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
+class EditEntryViewController : NetworkActivityViewController, ParentGroupPickerDelegate, UITextFieldDelegate, IconPickerDelegate, DatabaseDelegate, GeneratePasswordDelegate, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var parentGroup: KdbGroup?
     var kdbEntry: KdbEntry?
@@ -316,9 +316,6 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
         let saveError = UIAlertView(title: "Save Failed", message: error, delegate: self, cancelButtonTitle: "Cancel")
         saveError.tag = 4
         saveError.show()
-    }
-    
-    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
     }
     
     // MARK: TableViewDataSource
