@@ -110,7 +110,7 @@
 #pragma mark - Actions
 
 - (void)buttonPressed:(id)sender {
-    [delegate iconSelected:[[(UIButton*)sender imageView] image] withId:((UIButton*)sender).tag];
+    [delegate iconSelected:[[(UIButton*)sender imageView] image] withId:(uint32_t)((UIButton*)sender).tag];
     [self dismissModalViewControllerAnimated:YES];
 }
 

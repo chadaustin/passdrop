@@ -25,6 +25,7 @@
 		63B87D9D1F8348C7005262FB /* NewDatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B87D9C1F8348C7005262FB /* NewDatabaseViewController.swift */; };
 		63B87DA31F834AEB005262FB /* DropboxBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B87DA21F834AEB005262FB /* DropboxBrowserController.swift */; };
 		63B87DB41F860376005262FB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B87DB31F860376005262FB /* SettingsViewController.swift */; };
+		63DC2FA5232DBB7300E21CC7 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC2FA4232DBB7300E21CC7 /* EditEntryViewController.swift */; };
 		A2001E8413C0C6DC00DD42EA /* ParentGroupPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A2001E8313C0C6DC00DD42EA /* ParentGroupPicker.m */; };
 		A204B32F12FD81C200A4D656 /* DropboxBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A204B32D12FD81C200A4D656 /* DropboxBrowserController.xib */; };
 		A204B47812FDD08B00A4D656 /* UIPullToReloadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A204B47512FDD08B00A4D656 /* UIPullToReloadHeaderView.m */; };
@@ -37,7 +38,6 @@
 		A204B60B12FE029600A4D656 /* folder_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A204B60A12FE029600A4D656 /* folder_icon@2x.png */; };
 		A204B61A12FE058700A4D656 /* keepass_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A204B61812FE058700A4D656 /* keepass_icon@2x.png */; };
 		A204B61B12FE058700A4D656 /* unknown_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A204B61912FE058700A4D656 /* unknown_icon@2x.png */; };
-		A20B81B6140DB8FE004E3449 /* EditEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B81B5140DB8FE004E3449 /* EditEntryViewController.m */; };
 		A213BFF712FA6D2B00F37B28 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A213BFF612FA6D2B00F37B28 /* SettingsViewController.xib */; };
 		A24790F413EE3EF20017574E /* IconPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A24790F313EE3EF10017574E /* IconPicker.m */; };
 		A24C3660141E3DDE001BB5D3 /* template.kdb in Resources */ = {isa = PBXBuildFile; fileRef = A24C365F141E3DDE001BB5D3 /* template.kdb */; };
@@ -286,6 +286,7 @@
 		63B87D9C1F8348C7005262FB /* NewDatabaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDatabaseViewController.swift; sourceTree = "<group>"; };
 		63B87DA21F834AEB005262FB /* DropboxBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxBrowserController.swift; sourceTree = "<group>"; };
 		63B87DB31F860376005262FB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		63DC2FA4232DBB7300E21CC7 /* EditEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
 		6DD326A21A9D5B6DDFFAF4F6 /* Pods-PassDrop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassDrop.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassDrop/Pods-PassDrop.release.xcconfig"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PassDrop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PassDrop-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A2001E8213C0C6DB00DD42EA /* ParentGroupPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentGroupPicker.h; sourceTree = "<group>"; };
@@ -304,8 +305,6 @@
 		A204B61812FE058700A4D656 /* keepass_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keepass_icon@2x.png"; path = "Classes/keepass_icon@2x.png"; sourceTree = "<group>"; };
 		A204B61912FE058700A4D656 /* unknown_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unknown_icon@2x.png"; path = "Classes/unknown_icon@2x.png"; sourceTree = "<group>"; };
 		A204B64412FE0CBA00A4D656 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
-		A20B81B4140DB8FE004E3449 /* EditEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditEntryViewController.h; sourceTree = "<group>"; };
-		A20B81B5140DB8FE004E3449 /* EditEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditEntryViewController.m; sourceTree = "<group>"; };
 		A213BFF612FA6D2B00F37B28 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = Classes/SettingsViewController.xib; sourceTree = "<group>"; };
 		A24790F213EE3EF10017574E /* IconPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconPicker.h; sourceTree = "<group>"; };
 		A24790F313EE3EF10017574E /* IconPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconPicker.m; sourceTree = "<group>"; };
@@ -708,10 +707,9 @@
 		A24790EF13EDBE380017574E /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				A24F3DD41312205F00A4AF66 /* EditGroupViewController.h */,
+				63DC2FA4232DBB7300E21CC7 /* EditEntryViewController.swift */,
 				A24F3DD51312205F00A4AF66 /* EditGroupViewController.m */,
-				A20B81B4140DB8FE004E3449 /* EditEntryViewController.h */,
-				A20B81B5140DB8FE004E3449 /* EditEntryViewController.m */,
+				A24F3DD41312205F00A4AF66 /* EditGroupViewController.h */,
 				A2001E8213C0C6DB00DD42EA /* ParentGroupPicker.h */,
 				A2001E8313C0C6DC00DD42EA /* ParentGroupPicker.m */,
 				A24790F213EE3EF10017574E /* IconPicker.h */,
@@ -1358,7 +1356,7 @@
 				024185C51E5239F6005167DE /* AboutViewController.swift in Sources */,
 				02647BB91E5262A5009051F8 /* DatabaseManager.swift in Sources */,
 				A24790F413EE3EF20017574E /* IconPicker.m in Sources */,
-				A20B81B6140DB8FE004E3449 /* EditEntryViewController.m in Sources */,
+				63DC2FA5232DBB7300E21CC7 /* EditEntryViewController.swift in Sources */,
 				6370B4301F9F0683004F27BF /* KdbWriter.swift in Sources */,
 				A286D2D214198B9200B30F79 /* GeneratePasswordViewController.m in Sources */,
 				A2961322141D8C3B004E538E /* SyncButtonView.m in Sources */,
