@@ -64,14 +64,6 @@ static PassDropAppDelegate *app;
     keyboardShowing = NO;
 }
 
-// hack to fix weird bug with the leftbarbuttonitems disappearing
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
-        UIBarButtonItem *sb = self.navigationItem.leftBarButtonItem;
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:sb.title style:sb.style target:sb.target action:sb.action] autorelease];
-    }
-}
-
 - (void)closeButtonClicked {
     [self.navigationController popViewControllerAnimated:NO];
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
