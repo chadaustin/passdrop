@@ -186,9 +186,9 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -197,8 +197,8 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     }
     
     @objc func keyboardWillShow(_ note: NSNotification) {
-        let keyboardBounds = (note.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
-        let keyboardHeight = UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation)
+        let keyboardBounds = (note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
+        let keyboardHeight = UIApplication.shared.statusBarOrientation.isPortrait
             ? keyboardBounds.size.height
             : keyboardBounds.size.width
         if keyboardShowing == false {
@@ -232,8 +232,8 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     }
 
     @objc func keyboardWillHide(_ note: NSNotification) {
-        let keyboardBounds = (note.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
-        let keyboardHeight = UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation)
+        let keyboardBounds = (note.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
+        let keyboardHeight = UIApplication.shared.statusBarOrientation.isPortrait
             ? keyboardBounds.size.height
             : keyboardBounds.size.width
         if keyboardShowing {

@@ -136,15 +136,15 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc
     func keyboardWillShow(_ note: NSNotification) {
         var keyboardBounds = CGRect()
-        keyboardBounds = note.userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
-        let keyboardHeight = UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation)
+        keyboardBounds = note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        let keyboardHeight = UIApplication.shared.statusBarOrientation.isPortrait
             ? keyboardBounds.size.height
             : keyboardBounds.size.width
         if !keyboardShowing {
@@ -183,8 +183,8 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
     @objc
     func keyboardWillHide(_ note: NSNotification) {
         var keyboardBounds = CGRect()
-        keyboardBounds = note.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! CGRect
-        let keyboardHeight = UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation) ? keyboardBounds.size.height : keyboardBounds.size.width
+        keyboardBounds = note.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as! CGRect
+        let keyboardHeight = UIApplication.shared.statusBarOrientation.isPortrait ? keyboardBounds.size.height : keyboardBounds.size.width
         if keyboardShowing {
             keyboardShowing = false
             var frame = self.view.frame
@@ -514,7 +514,7 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 5 {// need modified height for notes cell
-            return (UIInterfaceOrientationIsPortrait(UIApplication.shared.statusBarOrientation) || UIDevice.current.userInterfaceIdiom == .pad) ? 151 : 62;
+            return (UIApplication.shared.statusBarOrientation.isPortrait || UIDevice.current.userInterfaceIdiom == .pad) ? 151 : 62;
         }
         return 44;
     }

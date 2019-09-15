@@ -1026,7 +1026,7 @@
 				LastUpgradeCheck = 1030;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1030;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1401,7 +1401,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "PassDrop Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/PassDrop-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = include;
 			};
@@ -1444,7 +1444,7 @@
 				PROVISIONING_PROFILE = "eaea8859-e39c-487d-a00b-880646802b3b";
 				PROVISIONING_PROFILE_SPECIFIER = "PassDrop Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/PassDrop-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = include;
 				VALIDATE_PRODUCT = YES;

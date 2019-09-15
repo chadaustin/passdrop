@@ -212,7 +212,7 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
         return cell;
     }
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.row == dbManager.databases.count {
             return .insert
         }
@@ -244,7 +244,7 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
     }
 
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if dbManager.getDatabaseAtIndex(indexPath.row).isDirty {
                 let deleteSheet = UIAlertController(title: "You have unsaved changes to this database that haven't been synced to Dropbox yet. Are you sure you want to delete it?", message: nil, preferredStyle: .actionSheet)

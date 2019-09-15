@@ -182,7 +182,7 @@ class KdbGroupViewController: NetworkActivityViewController, DatabaseDelegate,
 
     // MARK: Edit mode stuff
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if extraRows > 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             return .insert
         }
@@ -285,7 +285,7 @@ class KdbGroupViewController: NetworkActivityViewController, DatabaseDelegate,
     }
     
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         var save = true
         if editingStyle == .delete {
             tableView.beginUpdates()
