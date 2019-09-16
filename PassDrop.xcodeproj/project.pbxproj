@@ -19,6 +19,7 @@
 		636811271FA858D100D30F3B /* KdbGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636811261FA858D100D30F3B /* KdbGroupViewController.swift */; };
 		6370B4301F9F0683004F27BF /* KdbWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B42F1F9F0683004F27BF /* KdbWriter.swift */; };
 		6370B4381F9F0CE2004F27BF /* KdbGroup+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370B4371F9F0CE2004F27BF /* KdbGroup+Ext.swift */; };
+		638340F9232F08E40009F194 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638340F8232F08E30009F194 /* LaunchScreen.storyboard */; };
 		638C1B891FA2EC4600B43DA6 /* KdbReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638C1B881FA2EC4600B43DA6 /* KdbReader.swift */; };
 		63B87D8A1F81CC90005262FB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B87D891F81CC90005262FB /* RootViewController.swift */; };
 		63B87D921F8211C2005262FB /* PassDropAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B87D911F8211C2005262FB /* PassDropAppDelegate.swift */; };
@@ -265,14 +266,15 @@
 		02647BBC1E5289FC009051F8 /* String+NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSString.swift"; sourceTree = "<group>"; };
 		02F7DBC61E537F270035879B /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* PassDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PassDrop.app; path = "/Users/chad/projects/passdrop/build/Debug-iphoneos/PassDrop.app"; sourceTree = "<absolute>"; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* PassDrop_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassDrop_Prefix.pch; sourceTree = "<group>"; };
 		630886DD1E50F81B00C68EAE /* PassDrop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PassDrop-Bridging-Header.h"; sourceTree = "<group>"; };
 		636811261FA858D100D30F3B /* KdbGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KdbGroupViewController.swift; sourceTree = "<group>"; };
+		636F8111232F03570002F27B /* PassDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6370B42F1F9F0683004F27BF /* KdbWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KdbWriter.swift; sourceTree = "<group>"; };
 		6370B4371F9F0CE2004F27BF /* KdbGroup+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KdbGroup+Ext.swift"; sourceTree = "<group>"; };
+		638340F8232F08E30009F194 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Classes/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		638C1B881FA2EC4600B43DA6 /* KdbReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KdbReader.swift; sourceTree = "<group>"; };
 		63B87D891F81CC90005262FB /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		63B87D911F8211C2005262FB /* PassDropAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDropAppDelegate.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				A2B6A20115E00E6900E29EC3 /* iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				0EADDC5FBC86E39D1C806D30 /* Pods */,
+				636F8111232F03570002F27B /* PassDrop.app */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				A204B5A412FDEAF400A4D656 /* Images */,
 				A204B5A312FDEAE900A4D656 /* UI */,
 				8D1107310486CEB800E47090 /* PassDrop-Info.plist */,
+				638340F8232F08E30009F194 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -980,7 +984,7 @@
 			);
 			name = PassDrop;
 			productName = PassDrop;
-			productReference = 1D6058910D05DD3D006BFB54 /* PassDrop.app */;
+			productReference = 636F8111232F03570002F27B /* PassDrop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1074,6 +1078,7 @@
 				A24F371D130360CB00A4AF66 /* 10@2x.png in Resources */,
 				A24F371E130360CB00A4AF66 /* 11@2x.png in Resources */,
 				A24F371F130360CB00A4AF66 /* 12@2x.png in Resources */,
+				638340F9232F08E40009F194 /* LaunchScreen.storyboard in Resources */,
 				A24F3720130360CB00A4AF66 /* 13@2x.png in Resources */,
 				A24F3721130360CB00A4AF66 /* 14@2x.png in Resources */,
 				A2B9995218EF6A120055556A /* Images.xcassets in Resources */,
@@ -1332,7 +1337,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1372,7 +1376,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
