@@ -28,13 +28,24 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     
     // MARK: Actions
 
+    func showError(message: String) {
+        let error = UIAlertController(title: "Error", message: "You must enter a file name.", preferredStyle: .alert)
+        error.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(error, animated: true)
+    }
+
+    func showAlert(message: String) {
+        let error = UIAlertController(title: "Error", message: "You must enter a file name.", preferredStyle: .alert)
+        error.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(error, animated: true)
+    }
+
     @objc func saveButtonClicked() {
         // Force field to synchronize its data into dbName, password, or verifyPassword.
         self.view.endEditing(true)
         
         if dbName.isEmpty {
-            let error = UIAlertView(title: "Error", message: "You must enter a file name.", delegate: nil, cancelButtonTitle: "Cancel")
-            error.show()
+            showError(message: "You must enter a file name.")
             return;
         }
         
@@ -45,20 +56,17 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
                 ).inverted
             )
         ).location != NSNotFound {
-            let error = UIAlertView(title: "Error", message: "The file name contains illegal characters. Please use only alphanumerics, spaces, dashes, or underscores.", delegate: nil, cancelButtonTitle: "Cancel")
-            error.show()
+            showError(message: "The file name contains illegal characters. Please use only alphanumerics, spaces, dashes, or underscores.")
         }
         
-        if password == nil {
-            let error = UIAlertView(title: "Error", message: "You must enter a password.", delegate: nil, cancelButtonTitle: "Cancel")
-            error.show()
+        if password.isEmpty {
+            showError(message: "You must enter a password.")
             return
         }
 
         if !(password == verifyPassword) {
-            let error = UIAlertView(title: "Error", message: "The passwords you entered did not match.", delegate: nil, cancelButtonTitle: "Cancel")
-            error.show()
-            return;
+            showError(message: "The passwords you entered did not match.")
+            return
         }
         
         self.loadingMessage = "Creating"
@@ -74,8 +82,7 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
             guard let ss = self else { return }
             if let _ = response {
                 ss.networkRequestStopped()
-                let alert = UIAlertView(title: "Error", message: "That file already exists. Please choose a different file name.", delegate: nil, cancelButtonTitle: "Cancel")
-                alert.show()
+                ss.showError(message: "That file already exists. Please choose a different file name.")
             } else if let error = error {
                 switch error {
                 case .routeError(let box, _, _, _):
@@ -96,9 +103,9 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     }
     
     func alertError(_ errorMessage: String?) {
-        let msg = errorMessage ?? "Dropbox reported an unknown error."
-        let alert = UIAlertView(title: "Dropbox Error", message: msg, delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        let error = UIAlertController(title: "Error", message: errorMessage ?? "Dropbox reported an unknown error.", preferredStyle: .alert)
+        error.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(error, animated: true)
     }
     
     func uploadTemplate() {
@@ -106,8 +113,7 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
         let reader = KdbReader(kdbFile: path, usingPassword: "password")
         if reader.hasError {
             networkRequestStopped()
-            let error = UIAlertView(title: "Error", message: "There was a fatal error loading the database template. You may need to reinstall PassDrop.", delegate: nil, cancelButtonTitle: "Cancel")
-            error.show()
+            showError(message: "There was a fatal error loading the database template. You may need to reinstall PassDrop.")
         } else {
             let tempFile = NSTemporaryDirectory().appendingPathComponent(dbName.appendingPathExtension("kdb")!)
             let kpdb = reader.kpDatabase
@@ -118,8 +124,7 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
             kpass_hash_pw(kpdb, cPw, pwH)
             if !writer.saveDatabase(kpdb, withPassword: pwH, toFile: tempFile) {
                 networkRequestStopped()
-                let error = UIAlertView(title: "Error", message: writer.lastError, delegate: nil, cancelButtonTitle: "Cancel")
-                error.show()
+                showError(message: writer.lastError)
             } else {
                 dropboxClient.files.upload(
                     path: pathRoot.appendingPathComponent(dbName.appendingPathExtension("kdb")!),
@@ -131,8 +136,7 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
                         ss.delegate?.newDatabaseCreated()
                         ss.navigationController?.popViewController(animated: true)
                     } else if let error = error {
-                        let error = UIAlertView(title: "Error", message: error.description, delegate: nil, cancelButtonTitle: "OK")
-                        error.show()
+                        ss.showError(message: error.description)
                     }
                 }
             }
