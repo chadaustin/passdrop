@@ -26,10 +26,6 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
         return .portrait
     }
     
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
     // MARK: Actions
 
     @objc func saveButtonClicked() {

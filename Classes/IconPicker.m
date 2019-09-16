@@ -26,17 +26,6 @@
     return self;
 }
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
--(BOOL)shouldAutorotate{
-    return YES;
-}
-
 - (void) drawIcons {
     for(int i = 0; i < 69; i++){
         CGRect rect = CGRectMake(0, 0, 37, 37);

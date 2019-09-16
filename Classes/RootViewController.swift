@@ -112,10 +112,6 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
         return .portrait
     }
     
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
     // MARK: Subview Handling
     
     var tableView: UITableView {

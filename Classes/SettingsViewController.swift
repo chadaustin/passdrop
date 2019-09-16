@@ -87,12 +87,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         app.prefs.save()
     }
 
-    // MARK: dropbox delegate
-    
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
     // MARK: table delegate
    
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -27,10 +27,6 @@
     return YES;
 }
 
--(BOOL)shouldAutorotate{
-    return YES;
-}
-
 #pragma mark - View lifecycle
 
 /*

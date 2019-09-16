@@ -98,10 +98,6 @@ static PassDropAppDelegate *app;
     return YES;
 }
 
--(BOOL)shouldAutorotate{
-    return YES;
-}
-
 - (void) keyboardWillShow:(NSNotification*)note {
     CGRect keyboardBounds;
     [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardBounds];

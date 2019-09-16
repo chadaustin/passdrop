@@ -168,11 +168,6 @@
     return YES;
 }
 
--(BOOL)shouldAutorotate{
-    return YES;
-}
-
-
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	[self.masterViewController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];

@@ -167,10 +167,6 @@ class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDe
         return cell
     }
 
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
     // MARK: Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -65,10 +65,6 @@ class KdbGroupViewController: NetworkActivityViewController, DatabaseDelegate,
         //self.searchDisplayController.searchBar.frame.size.height);
     }
 
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }

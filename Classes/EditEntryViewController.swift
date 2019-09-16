@@ -125,10 +125,6 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
         }
     }
     
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

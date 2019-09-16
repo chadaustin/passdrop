@@ -19,10 +19,6 @@ class AboutViewController: UIViewController {
         return .portrait
     }
 
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
     @IBAction
     func handleEvent(_ sender: AnyObject) {
         guard let button = sender as? UIButton else {
