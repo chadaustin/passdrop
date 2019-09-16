@@ -35,7 +35,7 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
     
     var datePicker: UIDatePicker!
     var dateBar: UIToolbar?
-    var app: PassDropAppDelegate?
+    var app: PassDropAppDelegate!
     
     static var neverExpires: Date {
         var date = DateComponents()
@@ -70,7 +70,7 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
         dateBar?.barStyle = .blackTranslucent
         dateBar?.tintColor = .lightGray
 
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .bordered, target: self, action: #selector(hideKeyboard))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(hideKeyboard))
         let fspace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Choose", style: .done, target: self, action: #selector(chooseButtonClicked))
         
