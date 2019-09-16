@@ -1,24 +1,24 @@
 PODS:
   - Alamofire (4.4.0)
-  - OpenSSL (1.0.210)
+  - OpenSSL-XM (1.0.210.1)
   - SwiftyDropbox (4.2.0):
     - Alamofire (~> 4.4.0)
 
 DEPENDENCIES:
-  - OpenSSL (~> 1.0)
+  - OpenSSL-XM (~> 1.0)
   - SwiftyDropbox (~> 4.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - OpenSSL
+    - OpenSSL-XM
     - SwiftyDropbox
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  OpenSSL: 246ffb948e9d56466727fd318134af35f5aa764e
+  OpenSSL-XM: f2d7697be2a4b01a2c62239fd577e4137cab4f3a
   SwiftyDropbox: 6e7ecc3f3d7bf7c664888b0319d4e818f864a758
 
-PODFILE CHECKSUM: 6f3e9ddc3a01fcf7179dc0e815740df5b0bf8d15
+PODFILE CHECKSUM: 86b4aaea9cf62dcfe15987a10b622d1e235f3824
 
 COCOAPODS: 1.7.5
