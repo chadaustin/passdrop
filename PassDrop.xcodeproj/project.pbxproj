@@ -29,10 +29,7 @@
 		63DC2FA5232DBB7300E21CC7 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC2FA4232DBB7300E21CC7 /* EditEntryViewController.swift */; };
 		A2001E8413C0C6DC00DD42EA /* ParentGroupPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A2001E8313C0C6DC00DD42EA /* ParentGroupPicker.m */; };
 		A204B32F12FD81C200A4D656 /* DropboxBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A204B32D12FD81C200A4D656 /* DropboxBrowserController.xib */; };
-		A204B47812FDD08B00A4D656 /* UIPullToReloadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A204B47512FDD08B00A4D656 /* UIPullToReloadHeaderView.m */; };
-		A204B47912FDD08B00A4D656 /* UIPullToReloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A204B47712FDD08B00A4D656 /* UIPullToReloadTableViewController.m */; };
 		A204B49A12FDD1CB00A4D656 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A204B49912FDD1CB00A4D656 /* AudioToolbox.framework */; };
-		A204B4D612FDD34C00A4D656 /* PullToReload.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A204B4D512FDD34C00A4D656 /* PullToReload.bundle */; };
 		A204B5A712FDEB0A00A4D656 /* folder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A204B5A612FDEB0A00A4D656 /* folder_icon.png */; };
 		A204B5D412FDF43F00A4D656 /* unknown_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A204B5D312FDF43F00A4D656 /* unknown_icon.png */; };
 		A204B5DA12FDF54E00A4D656 /* keepass_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A204B5D912FDF54E00A4D656 /* keepass_icon.png */; };
@@ -287,12 +284,7 @@
 		A2001E8213C0C6DB00DD42EA /* ParentGroupPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentGroupPicker.h; sourceTree = "<group>"; };
 		A2001E8313C0C6DC00DD42EA /* ParentGroupPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentGroupPicker.m; sourceTree = "<group>"; };
 		A204B32D12FD81C200A4D656 /* DropboxBrowserController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DropboxBrowserController.xib; path = Classes/DropboxBrowserController.xib; sourceTree = "<group>"; };
-		A204B47412FDD08B00A4D656 /* UIPullToReloadHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPullToReloadHeaderView.h; sourceTree = "<group>"; };
-		A204B47512FDD08B00A4D656 /* UIPullToReloadHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPullToReloadHeaderView.m; sourceTree = "<group>"; };
-		A204B47612FDD08B00A4D656 /* UIPullToReloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPullToReloadTableViewController.h; sourceTree = "<group>"; };
-		A204B47712FDD08B00A4D656 /* UIPullToReloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPullToReloadTableViewController.m; sourceTree = "<group>"; };
 		A204B49912FDD1CB00A4D656 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		A204B4D512FDD34C00A4D656 /* PullToReload.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PullToReload.bundle; sourceTree = "<group>"; };
 		A204B5A612FDEB0A00A4D656 /* folder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = folder_icon.png; path = Classes/folder_icon.png; sourceTree = "<group>"; };
 		A204B5D312FDF43F00A4D656 /* unknown_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unknown_icon.png; path = Classes/unknown_icon.png; sourceTree = "<group>"; };
 		A204B5D912FDF54E00A4D656 /* keepass_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keepass_icon.png; path = Classes/keepass_icon.png; sourceTree = "<group>"; };
@@ -621,18 +613,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A204B4D112FDD33600A4D656 /* PullToReload */ = {
-			isa = PBXGroup;
-			children = (
-				A204B4D512FDD34C00A4D656 /* PullToReload.bundle */,
-				A204B47412FDD08B00A4D656 /* UIPullToReloadHeaderView.h */,
-				A204B47512FDD08B00A4D656 /* UIPullToReloadHeaderView.m */,
-				A204B47612FDD08B00A4D656 /* UIPullToReloadTableViewController.h */,
-				A204B47712FDD08B00A4D656 /* UIPullToReloadTableViewController.m */,
-			);
-			name = PullToReload;
-			sourceTree = "<group>";
-		};
 		A204B5A312FDEAE900A4D656 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,7 +874,6 @@
 			children = (
 				A24790EF13EDBE380017574E /* Edit */,
 				A24790EE13EDBE2E0017574E /* View */,
-				A204B4D112FDD33600A4D656 /* PullToReload */,
 				024185C41E5239F6005167DE /* AboutViewController.swift */,
 				63B87DA21F834AEB005262FB /* DropboxBrowserController.swift */,
 				A2A2151212FF06BD007E055A /* EditDatabaseViewController.h */,
@@ -1060,7 +1039,6 @@
 				A213BFF712FA6D2B00F37B28 /* SettingsViewController.xib in Resources */,
 				A2ADED9F12FCED9E0082EEA4 /* AboutViewController.xib in Resources */,
 				A204B32F12FD81C200A4D656 /* DropboxBrowserController.xib in Resources */,
-				A204B4D612FDD34C00A4D656 /* PullToReload.bundle in Resources */,
 				A204B5A712FDEB0A00A4D656 /* folder_icon.png in Resources */,
 				A204B5D412FDF43F00A4D656 /* unknown_icon.png in Resources */,
 				A204B5DA12FDF54E00A4D656 /* keepass_icon.png in Resources */,
@@ -1302,9 +1280,7 @@
 				638C1B891FA2EC4600B43DA6 /* KdbReader.swift in Sources */,
 				6370B4381F9F0CE2004F27BF /* KdbGroup+Ext.swift in Sources */,
 				02647BBB1E527B3B009051F8 /* DropboxDatabase.swift in Sources */,
-				A204B47812FDD08B00A4D656 /* UIPullToReloadHeaderView.m in Sources */,
 				63B87DA31F834AEB005262FB /* DropboxBrowserController.swift in Sources */,
-				A204B47912FDD08B00A4D656 /* UIPullToReloadTableViewController.m in Sources */,
 				A2A2151512FF06BD007E055A /* EditDatabaseViewController.m in Sources */,
 				02647BBD1E5289FC009051F8 /* String+NSString.swift in Sources */,
 				024185DF1E524BCF005167DE /* Global.swift in Sources */,

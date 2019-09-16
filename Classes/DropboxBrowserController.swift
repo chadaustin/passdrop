@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyDropbox
 
-class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDelegate {
+class DropboxBrowserController: UITableViewController, NewDatabaseDelegate {
     var dropboxClient: DropboxClient!
     var myPath: String
     var isLoaded = false
@@ -51,6 +51,9 @@ class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(refreshDirectory), for: .valueChanged)
+        
         dropboxClient = DropboxClientsManager.authorizedClient!
         let newButton = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(newButtonClicked))
         navigationItem.rightBarButtonItem = newButton
@@ -66,11 +69,8 @@ class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDe
     }
     
     // MARK: PullDown implementation
-    
-    override func pullDownToReloadAction() {
-        refreshDirectory()
-    }
-    
+
+    @objc
     func refreshDirectory() {
         networkRequestStarted()
         dropboxClient.files.listFolder(path: myPath).response { [weak self] response, error in
@@ -238,7 +238,7 @@ class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDe
             let app = UIApplication.shared
             app.isNetworkActivityIndicatorVisible = false
             setWorking(false)
-            pullToReloadHeaderView.finishReloading(tableView, animated: true)
+            self.refreshControl?.endRefreshing()
         }
     }
     
