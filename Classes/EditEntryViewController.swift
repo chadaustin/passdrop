@@ -53,7 +53,7 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
         super.viewDidLoad()
         app = UIApplication.shared.delegate as! PassDropAppDelegate
         
-        var saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEntry))
+        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveEntry))
         navigationItem.rightBarButtonItem = saveButton
         currentFirstResponder = 0
         
@@ -253,6 +253,12 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
     
     // MARK: Saving
     
+    func showError(message: String) {
+        let invalid = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        invalid.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(invalid, animated: true)
+    }
+    
     @objc
     func saveEntry() {
         // clear ui stuff
@@ -261,11 +267,9 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
     
         // input validation
         if neuName.isEmpty {
-            let invalid = UIAlertView(title: "Error", message: "You must enter an entry name.", delegate: self, cancelButtonTitle: "Cancel")
-            invalid.show()
+            showError(message: "You must enter an entry name.")
         } else if neuPassword != verifyPassword {
-            let invalid = UIAlertView(title: "Error", message: "The passwords you entered do not match.", delegate: self, cancelButtonTitle: "Cancel")
-            invalid.show()
+            showError(message: "The passwords you entered do not match.")
         } else {
             let iconId = neuIconId != NO_ICON_SET ? neuIconId : editMode ? kdbEntry!.kpEntry()!.pointee.image_id : parentGroup!.kpGroup().pointee.image_id
 
@@ -304,9 +308,7 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
     func database(_ database: Database!, saveFailedWithReason error: String!) {
         networkRequestStopped()
         setWorking(false)
-        let saveError = UIAlertView(title: "Save Failed", message: error, delegate: self, cancelButtonTitle: "Cancel")
-        saveError.tag = 4
-        saveError.show()
+        showError(message: error)
     }
     
     // MARK: TableViewDataSource
