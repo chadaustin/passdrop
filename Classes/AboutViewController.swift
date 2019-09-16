@@ -23,10 +23,6 @@ class AboutViewController: UIViewController {
         return true
     }
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-
     @IBAction
     func handleEvent(_ sender: AnyObject) {
         guard let button = sender as? UIButton else {

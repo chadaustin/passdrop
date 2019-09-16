@@ -171,10 +171,6 @@ class DropboxBrowserController: UIPullToReloadTableViewController, NewDatabaseDe
         return true
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-
     // MARK: Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

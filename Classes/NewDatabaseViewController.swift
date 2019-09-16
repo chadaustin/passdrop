@@ -22,10 +22,6 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     var location: String!
     var delegate: NewDatabaseDelegate?
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-    
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .portrait
     }

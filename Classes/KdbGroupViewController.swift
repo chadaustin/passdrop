@@ -69,10 +69,6 @@ class KdbGroupViewController: NetworkActivityViewController, DatabaseDelegate,
         return true
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }

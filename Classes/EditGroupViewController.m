@@ -98,10 +98,6 @@ static PassDropAppDelegate *app;
     return YES;
 }
 
--(UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskAll;
-}
-
 -(BOOL)shouldAutorotate{
     return YES;
 }

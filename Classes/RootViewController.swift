@@ -108,10 +108,6 @@ class RootViewController: NetworkActivityViewController, DatabaseManagerDelegate
         super.viewDidDisappear(animated)
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-    
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .portrait
     }

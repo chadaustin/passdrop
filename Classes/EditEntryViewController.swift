@@ -125,13 +125,8 @@ class EditEntryViewController : NetworkActivityViewController, ParentGroupPicker
         }
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-
     override var shouldAutorotate: Bool {
         return true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

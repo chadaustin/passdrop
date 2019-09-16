@@ -93,10 +93,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return true
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
-    }
-
     // MARK: table delegate
    
     func numberOfSections(in tableView: UITableView) -> Int {
