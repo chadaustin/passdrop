@@ -20,11 +20,7 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     var password: String!
     var verifyPassword: String!
     var location: String!
-    var currentFirstResponder: Int = 0
     var delegate: NewDatabaseDelegate?
-    var oldKeyboardHeight: CGFloat = 0
-    var keyboardShowing: Bool = false
-    var scrollToPath: IndexPath!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
@@ -40,13 +36,7 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
 
     // MARK: Actions
 
-    @objc func hideKeyboard() {
-        let fld = view.viewWithTag(currentFirstResponder)
-        fld?.resignFirstResponder()
-    }
-    
     @objc func saveButtonClicked() {
-        hideKeyboard()
         if dbName.isEmpty {
             let error = UIAlertView(title: "Error", message: "You must enter a file name.", delegate: nil, cancelButtonTitle: "Cancel")
             error.show()
@@ -177,80 +167,9 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
 
         dropboxClient = DropboxClientsManager.authorizedClient!
         
-        currentFirstResponder = 0
-        
-        oldKeyboardHeight = 0
-        keyboardShowing = false
-
         super.viewDidLoad()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIApplication.willResignActiveNotification, object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        hideKeyboard()
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func keyboardWillShow(_ note: NSNotification) {
-        let keyboardBounds = (note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue
-        let keyboardHeight = UIApplication.shared.statusBarOrientation.isPortrait
-            ? keyboardBounds.size.height
-            : keyboardBounds.size.width
-        if keyboardShowing == false {
-            keyboardShowing = true
-            
-            var frame = view.frame
-            frame.size.height -= keyboardHeight
-            
-            oldKeyboardHeight = keyboardHeight
 
-            UIView.beginAnimations(nil, context: nil)
-            UIView.setAnimationBeginsFromCurrentState(true)
-            UIView.setAnimationDuration(0.3)
-            view.frame = frame
-            tableView.scrollToRow(at: scrollToPath, at: .middle, animated: true)
-            UIView.commitAnimations()
-        } else if keyboardHeight != oldKeyboardHeight {
-            let diff = keyboardHeight - oldKeyboardHeight
-            var frame = view.frame
-            frame.size.height -= CGFloat(diff)
-            
-            oldKeyboardHeight = keyboardHeight
-            
-            UIView.beginAnimations(nil, context: nil)
-            UIView.setAnimationBeginsFromCurrentState(true)
-            UIView.setAnimationDuration(0.3)
-            view.frame = frame
-            tableView.scrollToRow(at: scrollToPath, at: .middle, animated: true)
-            UIView.commitAnimations()
-        }
-    }
-
-    @objc func keyboardWillHide(_ note: NSNotification) {
-        let keyboardBounds = (note.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)!.cgRectValue
-        let keyboardHeight = UIApplication.shared.statusBarOrientation.isPortrait
-            ? keyboardBounds.size.height
-            : keyboardBounds.size.width
-        if keyboardShowing {
-            keyboardShowing = false
-            var frame = self.view.frame
-            frame.size.height += keyboardHeight
-            
-            oldKeyboardHeight = 0
-
-            UIView.beginAnimations(nil, context: nil)
-            UIView.setAnimationBeginsFromCurrentState(true)
-            UIView.setAnimationDuration(0.3)
-            view.frame = frame
-            UIView.commitAnimations()
-        }
-    }
-    
     // MARK: tableviewdatasource
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -344,13 +263,8 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     // MARK: TextField delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hideKeyboard()
+        textField.resignFirstResponder()
         return false
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollToPath = IndexPath(row: textField.tag % 10, section: (textField.tag / 10) - 1)
-        currentFirstResponder = textField.tag
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -367,7 +281,5 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
         default:
             break
         }
-        
-        currentFirstResponder = 0
     }
 }
