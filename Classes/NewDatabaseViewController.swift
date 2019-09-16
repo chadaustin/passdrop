@@ -17,8 +17,8 @@ protocol NewDatabaseDelegate {
 class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     var dropboxClient: DropboxClient!
     var dbName: String = ""
-    var password: String!
-    var verifyPassword: String!
+    var password: String = ""
+    var verifyPassword: String = ""
     var location: String!
     var delegate: NewDatabaseDelegate?
     
@@ -29,6 +29,9 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
     // MARK: Actions
 
     @objc func saveButtonClicked() {
+        // Force field to synchronize its data into dbName, password, or verifyPassword.
+        self.view.endEditing(true)
+        
         if dbName.isEmpty {
             let error = UIAlertView(title: "Error", message: "You must enter a file name.", delegate: nil, cancelButtonTitle: "Cancel")
             error.show()
@@ -265,10 +268,10 @@ class NewDatabaseViewController: NetworkActivityViewController, UITextFieldDeleg
             self.dbName = textField.text ?? ""
             break;
         case 20:
-            self.password = textField.text
+            self.password = textField.text ?? ""
             break;
         case 21:
-            self.verifyPassword = textField.text
+            self.verifyPassword = textField.text ?? ""
             break;
         default:
             break
