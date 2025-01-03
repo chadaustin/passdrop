@@ -1,3 +1,14 @@
+# This Project Is Unsupported
+
+I have no plans to push another update. I tried years back but never
+had the bandwidth to figure out all of the changes required to make it
+compatible with the increased variety of iOS screen sizes.
+
+In the meantime, KeePass 1's file format is deprecated and there are
+better Dropbox-synced KeePass apps.
+
+----
+
 # passdrop
 
 *This is a modern, updated build of [Rudis Muiznieks](https://github.com/rudism)'s PassDrop application.*
